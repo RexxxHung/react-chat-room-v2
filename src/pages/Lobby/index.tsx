@@ -153,50 +153,6 @@ const Lobby: React.FC = () => {
         //設定監聽
         initWebSocket();
       }
-
-      return () => {
-        if (data?.state.ws && data?.state.isLogout) {
-          setLoading((preVal: any) => (preVal = true));
-
-          data.state.ws.emit("logout", {
-            id: data?.state.id,
-            name: data?.state.name,
-          });
-
-          data?.setState(
-            (preVal) =>
-              (preVal = {
-                ...preVal,
-                name: null,
-                id: undefined,
-              })
-          );
-
-          setSnackbar(
-            (preVal) =>
-              (preVal = {
-                open: true,
-                severity: "info",
-                message: "登出成功",
-              })
-          );
-
-          setTimeout(() => {
-            setSnackbar(
-              (preVal) =>
-                (preVal = {
-                  ...preVal,
-                  open: false,
-                })
-            );
-          }, 2000);
-
-          setTimeout(() => {
-            setLoading((preVal: any) => (preVal = false));
-            history.push("/");
-          }, 1000);
-        }
-      };
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [data?.state.ws]
