@@ -44,7 +44,6 @@ const Index: React.FC = () => {
           {routers.map((route, i) => (
             <RouteWithSubRoutes key={i} {...route} />
           ))}
-          <Redirect to="/"></Redirect>
         </Switch>
       </Router>
     </StateContext.Provider>
