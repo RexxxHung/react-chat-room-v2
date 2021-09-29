@@ -39,7 +39,7 @@ const Index: React.FC = () => {
         setState,
       }}
     >
-      <Router basename="/Socketio-Client">
+      <Router basename="/react-chat-room-v2">
         <Switch>
           {routers.map((route, i) => (
             <RouteWithSubRoutes key={i} {...route} />
